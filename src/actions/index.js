@@ -24,7 +24,7 @@ export const makeApiCall = () => {
         dispatch(getHeadlinesSuccess(jsonifiedResponse.results));
       })
       .catch((error) => {
-        dispatch(getHeadlinesFailer(error));
+        dispatch(getHeadlinesFailure(error));
       });
   }
 }
