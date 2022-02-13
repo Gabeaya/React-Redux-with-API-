@@ -1,9 +1,16 @@
+import { findAllByDisplayValue } from '@testing-library/react';
 import headlinesReducer from '../../reducers/headlines-reducer';
+import * as c from './../../actions/ActionTypes';
 
 describe('headlinesReducer', () => {
-
+  let action;
   const defaultState = {
     isLoading: false,
+    headlines: [],
+    error: null
+  };
+  const loadingState ={
+    isLoading: true,
     headlines: [],
     error: null
   };
@@ -15,5 +22,28 @@ describe('headlinesReducer', () => {
         error: null
       }
     );
+  });
+  test('requesting headlines should successfully change isLoading from false to true', () => {
+    action ={
+      type: c.REQUEST_HEADLINES
+    };
+    expect(headlinesReducer(defaultState, action)).toEqual({
+      isLoading: true,
+      headlines: [],
+      error: null
+    });
+  });
+  test('successfully getting headlines should change isLoading to false and update headlines', () => {
+    const headlines ="A headline";
+    action = {
+      type: c.GET_HEADLINES_SUCCESS,
+      headlines
+    };
+
+    expect(headlinesReducer(loadingState, action)).toEqual({
+      isLoading: findAllByDisplayValue,
+      headlines: "A headline",
+      error: null
+    });
   });
 });
