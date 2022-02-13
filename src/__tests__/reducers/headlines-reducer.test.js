@@ -1,4 +1,3 @@
-import { findAllByDisplayValue } from '@testing-library/react';
 import headlinesReducer from '../../reducers/headlines-reducer';
 import * as c from './../../actions/ActionTypes';
 
