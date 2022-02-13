@@ -32,8 +32,10 @@ class Headlines extends React.Component {
 
   render() {
     const { error, isLoaded, headlines } = this.state;
-    if(error) {
+    if (error) {
       return <React.Fragment>Error: {error.message}</React.Fragment>;
+    } else if (!isLoaded) {
+      return <React.Fragment>Loading...</React.Fragment>
     } else {
       return (
         <React.Fragment>
