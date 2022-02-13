@@ -41,7 +41,7 @@ describe('headlinesReducer', () => {
     };
 
     expect(headlinesReducer(loadingState, action)).toEqual({
-      isLoading: findAllByDisplayValue,
+      isLoading: false,
       headlines: "A headline",
       error: null
     });
